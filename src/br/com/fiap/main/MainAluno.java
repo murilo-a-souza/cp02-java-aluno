@@ -22,6 +22,7 @@ public class MainAluno {
 
         // Objetos com entrada do usuário e construtores vazios
         try {
+            // Aluno 3
             aluno3 = new Aluno();
             auxiliar = JOptionPane.showInputDialog("Digite o RM do aluno 3:");
             aluno3.setRegistroMatricula(rm = Integer.parseInt(auxiliar));
@@ -30,6 +31,7 @@ public class MainAluno {
             nascimento = JOptionPane.showInputDialog("Digite a data de nascimento do aluno 3 (dd/MM/yyyy):");
             aluno3.setDataDeNascimento(LocalDate.parse(nascimento, formatador));
 
+            // Aluno 4
             aluno4 = new Aluno();
             auxiliar = JOptionPane.showInputDialog("Digite o RM do aluno 4:");
             aluno4.setRegistroMatricula(rm = Integer.parseInt(auxiliar));
@@ -38,22 +40,15 @@ public class MainAluno {
             nascimento = JOptionPane.showInputDialog("Digite a data de nascimento do aluno 4 (dd/MM/yyyy):");
             aluno4.setDataDeNascimento(LocalDate.parse(nascimento, formatador));
 
-            String mensagem = String.format(
-                    "Data atual: %s%n%n" +
-                            "RM: %d%nNome: %s%nIdade completa: %s%n%n" +
-                            "RM: %d%nNome: %s%nIdade completa: %s%n%n" +
-                            "RM: %d%nNome: %s%nIdade completa: %s%n%n" +
-                            "RM: %d%nNome: %s%nIdade completa: %s",
-                    dataAtual.format(formatador),
-                    aluno1.getRegistroMatricula(), aluno1.getNomeCompleto(), aluno1.calcularIdadeCompleta(dataAtual),
-                    aluno2.getRegistroMatricula(), aluno2.getNomeCompleto(), aluno2.calcularIdadeCompleta(dataAtual),
-                    aluno3.getRegistroMatricula(), aluno3.getNomeCompleto(), aluno3.calcularIdadeCompleta(dataAtual),
-                    aluno4.getRegistroMatricula(), aluno4.getNomeCompleto(), aluno4.calcularIdadeCompleta(dataAtual)
-            );
+            //mensagem final, mostrando rm, nome e idade completa de todos os alunos
+            JOptionPane.showMessageDialog(null, String.format("ALUNO 1\nNome: %s\nRM: %d\nIdade: %s\nALUNO 2:\nNome: %s\nRM: %d\nIdade: %s\nALUNO 3:\nNome: %s\nRM: %d\nIdade: %s\nALUNO 4:\nNome: %s\nRM: %d\nIdade: %s\n",
+                    aluno1.getNomeCompleto(), aluno1.getRegistroMatricula(), aluno1.calcularIdadeCompleta(dataAtual),
+                    aluno2.getNomeCompleto(), aluno2.getRegistroMatricula(), aluno1.calcularIdadeCompleta(dataAtual),
+                    aluno2.getNomeCompleto(), aluno2.getRegistroMatricula(), aluno1.calcularIdadeCompleta(dataAtual),
+                    aluno3.getNomeCompleto(), aluno3.getRegistroMatricula(), aluno3.calcularIdadeCompleta(dataAtual),
+                    aluno4.getNomeCompleto(), aluno4.getRegistroMatricula(), aluno4.calcularIdadeCompleta(dataAtual)));
 
-            JOptionPane.showMessageDialog(null, mensagem, "Dados dos Alunos", JOptionPane.INFORMATION_MESSAGE);
-
-        } catch (NumberFormatException e) {
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }

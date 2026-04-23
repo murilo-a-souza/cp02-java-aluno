@@ -6,6 +6,7 @@ RM573977 - Murilo Almeida Rodrigues de Souza
 
 package br.com.fiap.bean;
 
+import javax.swing.*;
 import java.time.LocalDate;
 import java.time.Period;
 
@@ -31,7 +32,7 @@ public class Aluno {
                 throw new Exception("O Registro de matrícula deve ser entre 80000-599999.");
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }
     public String getNomeCompleto() {
@@ -53,7 +54,7 @@ public class Aluno {
                 throw new Exception("Inválido.");
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }
     public String calcularIdadeCompleta(LocalDate dataAtual) {
