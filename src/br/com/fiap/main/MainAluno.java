@@ -1,9 +1,3 @@
-/*
-RM569568 - Carlos Henrique De Melo Franco
-RM573620 - Henrique Bonachela de Carvalho Carabante
-RM573977 - Murilo Almeida Rodrigues de Souza
-*/
-
 package br.com.fiap.main;
 
 import br.com.fiap.bean.Aluno;
@@ -56,24 +50,45 @@ public class MainAluno {
 
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null,
-                    "O RM deve conter apenas numeros inteiros.",
+                    "O RM deve conter apenas números inteiros.",
                     "Erro",
                     JOptionPane.ERROR_MESSAGE);
         } catch (IllegalArgumentException e) {
             JOptionPane.showMessageDialog(null,
                     e.getMessage(),
-                    "Erro de validacao",
+                    "Erro de validação",
                     JOptionPane.ERROR_MESSAGE);
         }
     }
 
     public static LocalDate lerData(String mensagem, DateTimeFormatter formatador) {
-        String dataTexto = JOptionPane.showInputDialog(mensagem);
+        while (true) {
+            String dataTexto = JOptionPane.showInputDialog(mensagem);
 
-        try {
-            return LocalDate.parse(dataTexto, formatador);
-        } catch (DateTimeParseException e) {
-            throw new IllegalArgumentException("Data invalida. Use o formato dd/MM/yyyy.");
+            try {
+                LocalDate data = LocalDate.parse(dataTexto, formatador);
+
+                if (data.isAfter(LocalDate.now())) {
+                    JOptionPane.showMessageDialog(
+                            null,
+                            "A data não pode estar no futuro.",
+                            "Erro",
+                            JOptionPane.ERROR_MESSAGE
+                    );
+                    continue;
+                }
+
+                return data;
+
+            } catch (DateTimeParseException e) {
+                JOptionPane.showMessageDialog(
+                        null,
+                        "Data inválida. Use o formato dd/MM/yyyy.",
+                        "Erro",
+                        JOptionPane.ERROR_MESSAGE
+
+                );
+            }
         }
     }
 }
