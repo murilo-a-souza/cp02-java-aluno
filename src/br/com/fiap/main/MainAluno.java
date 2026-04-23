@@ -11,18 +11,15 @@ public class MainAluno {
     public static void main(String[] args) {
         DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate dataAtual = LocalDate.now();
+        Aluno aluno1, aluno2, aluno3, aluno4;
 
+        // Instanciando dois objetos com construtor com passagem de parametros
+        // Eles são os dois objetos que recebem nossos valores reais
+        aluno1 = new Aluno(573977, "Murilo Almeida Rodrigues de Souza", LocalDate.parse("20/02/2008", formatador));
+        aluno2 = new Aluno(573620, "Henrique Bonachela de Carvalho Carabante", LocalDate.parse("20/02/2008", formatador));
+
+        // Objetos com entrada do usuário
         try {
-            Aluno aluno1 = new Aluno();
-            aluno1.setRegistroMatricula(Integer.parseInt(JOptionPane.showInputDialog("Digite o RM do aluno 1:")));
-            aluno1.setNomeCompleto(JOptionPane.showInputDialog("Digite o nome completo do aluno 1:"));
-            aluno1.setDataDeNascimento(lerData("Digite a data de nascimento do aluno 1 (dd/MM/yyyy):", formatador));
-
-            Aluno aluno2 = new Aluno();
-            aluno2.setRegistroMatricula(Integer.parseInt(JOptionPane.showInputDialog("Digite o RM do aluno 2:")));
-            aluno2.setNomeCompleto(JOptionPane.showInputDialog("Digite o nome completo do aluno 2:"));
-            aluno2.setDataDeNascimento(lerData("Digite a data de nascimento do aluno 2 (dd/MM/yyyy):", formatador));
-
             int rm3 = Integer.parseInt(JOptionPane.showInputDialog("Digite o RM do aluno 3:"));
             String nome3 = JOptionPane.showInputDialog("Digite o nome completo do aluno 3:");
             LocalDate nascimento3 = lerData("Digite a data de nascimento do aluno 3 (dd/MM/yyyy):", formatador);
