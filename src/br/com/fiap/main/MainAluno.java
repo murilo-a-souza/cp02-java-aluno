@@ -43,8 +43,7 @@ public class MainAluno {
             //mensagem final, mostrando rm, nome e idade completa de todos os alunos
             JOptionPane.showMessageDialog(null, String.format("ALUNO 1\nNome: %s\nRM: %d\nIdade: %s\nALUNO 2:\nNome: %s\nRM: %d\nIdade: %s\nALUNO 3:\nNome: %s\nRM: %d\nIdade: %s\nALUNO 4:\nNome: %s\nRM: %d\nIdade: %s\n",
                     aluno1.getNomeCompleto(), aluno1.getRegistroMatricula(), aluno1.calcularIdadeCompleta(dataAtual),
-                    aluno2.getNomeCompleto(), aluno2.getRegistroMatricula(), aluno1.calcularIdadeCompleta(dataAtual),
-                    aluno2.getNomeCompleto(), aluno2.getRegistroMatricula(), aluno1.calcularIdadeCompleta(dataAtual),
+                    aluno2.getNomeCompleto(), aluno2.getRegistroMatricula(), aluno2.calcularIdadeCompleta(dataAtual),
                     aluno3.getNomeCompleto(), aluno3.getRegistroMatricula(), aluno3.calcularIdadeCompleta(dataAtual),
                     aluno4.getNomeCompleto(), aluno4.getRegistroMatricula(), aluno4.calcularIdadeCompleta(dataAtual)));
 

@@ -33,6 +33,7 @@ public class Aluno {
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
+            System.exit(0);
         }
     }
     public String getNomeCompleto() {
@@ -46,15 +47,16 @@ public class Aluno {
     }
     public void setDataDeNascimento(LocalDate dataDeNascimento) {
         try {
-            LocalDate dataLimite = LocalDate.parse("01-01-1960").minusDays(1);
+            LocalDate dataLimite = LocalDate.parse("1960-01-01").minusDays(1);
             LocalDate dataAtual = LocalDate.now().plusDays(1);
             if (dataDeNascimento.isAfter(dataLimite) && dataDeNascimento.isBefore(dataAtual)) {
                 this.dataDeNascimento = dataDeNascimento;
             } else {
-                throw new Exception("Inválido.");
+                throw new Exception("Inválido, digite somente datas após 01/01/1960");
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
+            System.exit(0);
         }
     }
     public String calcularIdadeCompleta(LocalDate dataAtual) {
