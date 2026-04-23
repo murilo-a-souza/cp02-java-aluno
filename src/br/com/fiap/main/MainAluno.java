@@ -23,7 +23,7 @@ public class MainAluno {
         // Instanciando dois objetos com construtor com passagem de parametros
         // Eles são os dois objetos que recebem nossos valores reais
         aluno1 = new Aluno(573977, "Murilo Almeida Rodrigues de Souza", LocalDate.parse("20/02/2008", formatador));
-        aluno2 = new Aluno(573620, "Henrique Bonachela de Carvalho Carabante", LocalDate.parse("20/02/2008", formatador));
+        aluno2 = new Aluno(573620, "Henrique Bonachela de Carvalho Carabante", LocalDate.parse("01/02/2008", formatador));
 
         // Objetos com entrada do usuário e construtores vazios
         try {
