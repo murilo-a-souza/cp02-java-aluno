@@ -23,12 +23,12 @@ public class MainAluno {
             int rm3 = Integer.parseInt(JOptionPane.showInputDialog("Digite o RM do aluno 3:"));
             String nome3 = JOptionPane.showInputDialog("Digite o nome completo do aluno 3:");
             LocalDate nascimento3 = lerData("Digite a data de nascimento do aluno 3 (dd/MM/yyyy):", formatador);
-            Aluno aluno3 = new Aluno(rm3, nome3, nascimento3);
+            aluno3 = new Aluno(rm3, nome3, nascimento3);
 
             int rm4 = Integer.parseInt(JOptionPane.showInputDialog("Digite o RM do aluno 4:"));
             String nome4 = JOptionPane.showInputDialog("Digite o nome completo do aluno 4:");
             LocalDate nascimento4 = lerData("Digite a data de nascimento do aluno 4 (dd/MM/yyyy):", formatador);
-            Aluno aluno4 = new Aluno(rm4, nome4, nascimento4);
+            aluno4 = new Aluno(rm4, nome4, nascimento4);
 
             String mensagem = String.format(
                     "Data atual: %s%n%n" +
@@ -55,37 +55,6 @@ public class MainAluno {
                     e.getMessage(),
                     "Erro de validação",
                     JOptionPane.ERROR_MESSAGE);
-        }
-    }
-
-    public static LocalDate lerData(String mensagem, DateTimeFormatter formatador) {
-        while (true) {
-            String dataTexto = JOptionPane.showInputDialog(mensagem);
-
-            try {
-                LocalDate data = LocalDate.parse(dataTexto, formatador);
-
-                if (data.isAfter(LocalDate.now())) {
-                    JOptionPane.showMessageDialog(
-                            null,
-                            "A data não pode estar no futuro.",
-                            "Erro",
-                            JOptionPane.ERROR_MESSAGE
-                    );
-                    continue;
-                }
-
-                return data;
-
-            } catch (DateTimeParseException e) {
-                JOptionPane.showMessageDialog(
-                        null,
-                        "Data inválida. Use o formato dd/MM/yyyy.",
-                        "Erro",
-                        JOptionPane.ERROR_MESSAGE
-
-                );
-            }
         }
     }
 }
